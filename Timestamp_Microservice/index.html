@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestamp Microservice</title>
+    <link rel="stylesheet" href="./styles/styles.css" type="text/css" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            width: 1905px;
+            height: 871px;
+            background: linear-gradient(pink, rgb(80, 80, 251));
+        }
+
+        #container {
+            background-color: rgb(254, 255, 255);
+            width: 42%;
+            margin: 0 auto;
+            height: 74%;
+            text-align: center;
+            border-radius: 5%;
+        }
+
+        #title {
+            margin-top: 100px;
+            padding-top: 40px;
+            margin-bottom: 30px;
+            font-size: 1.7em;
+
+        }
+
+        #example,
+        #useUD {
+            margin-bottom: 30px;
+            font-size: 1.5em;
+        }
+
+        h4,
+        p {
+            margin-bottom: 12px;
+        }
+
+        .input {
+            margin-top: 30px;
+
+        }
+
+        .button,
+        .b-text {
+            padding: 18px;
+            border: none;
+            /* Eliminar el borde */
+            outline: none;
+            /* Eliminar el resaltado al hacer clic */
+            border-radius: 5px;
+        }
+
+        .b-text {
+            font-size: 18px;
+            background-color: rgb(240, 240, 240);
+        }
+
+        .b-text:hover {
+            border: 2px solid slateblue;
+            background-color: rgb(248, 248, 248);
+            font-weight: 700;
+        }
+
+        .button {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .button:hover {
+            border: 2px solid rgb(192, 186, 233);
+            background-color: rgb(140, 216, 246);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container" class="container-fluid">
+        <div id="title">
+            <h1>Timestamp Microservice</h1>
+            <p>by Taylor</p>
+            <hr />
+        </div>
+
+
+        <div id="example">
+            <h4>Example usage:</h4>
+            <p><a href="/api/2014-15-01">/api/2014-15-01</a>/</p>
+            <p><a href="/api/1451001600000">/api/1451001600000</a></p>
+
+            <h4>Example output:</h4>
+            <p>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</p>
+
+        </div>
+
+        <div id="useUD">
+            <form id="myForm">
+                <label for="inpt">
+                    <h2>Insert here</h2>
+                    <h5>(Optional, no url)</h5>
+                </label>
+                <div class="input">
+                    <input type="text" name="inpt" autofocus="autofocus"
+                        placeholder="2014-15-01 or 1451001600000" class="b-text" id="textInput"/>
+                    <input type="submit" value="Submit" class="button" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Previene el comportamiento de envío por defecto del formulario
+      
+            const userInput = document.getElementById("textInput").value;
+      
+            // Aquí podrías hacer algún procesamiento con el texto antes de redirigir si es necesario
+      
+            window.location.href = "/api/" + userInput;
+        });
+    
+    </script>
+
+
+</body>
+
+</html>
